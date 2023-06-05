@@ -1,4 +1,5 @@
 function flipCoinUntilMatch() {
+  const FLIP_COUNT_LIMIT = 30;
   let consecutiveCount = 0;
   let flipCount = 0;
   let headsCount = 0;
@@ -7,7 +8,7 @@ function flipCoinUntilMatch() {
 
   console.time('flipCoinUntilMatch');
 
-  while (consecutiveCount < 30) {
+  while (consecutiveCount < FLIP_COUNT_LIMIT) {
     // Simulate flipping a coin by generating a random number between 0 and 1
     const result = Math.random() < 0.5 ? 'Heads' : 'Tails';
 
@@ -27,7 +28,7 @@ function flipCoinUntilMatch() {
     }
   }
 
-  console.log('Got 30 consecutive', previousResult, 'results!');
+  console.log('Got ',FLIP_COUNT_LIMIT,' consecutive', previousResult, 'results!');
   console.log('Total flips:', flipCount);
   console.log('Heads:', headsCount, '(', ((headsCount / flipCount) * 100).toFixed(2), '%)');
   console.log('Tails:', tailsCount, '(', ((tailsCount / flipCount) * 100).toFixed(2), '%)');
